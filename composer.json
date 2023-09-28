@@ -1,0 +1,15 @@
+{
+    "name": "romeo/projeten-php",
+    "autoload": {
+        "psr-4": {
+            "Romeo\\ProjetenPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "romeo agostino",
+            "email": "romeoago004@gmail.com"
+        }
+    ],
+    "require": {}
+}
