@@ -1,8 +1,8 @@
 <?php
-require_once ('D:\ProjetEnPhp\ProjetenPhp\src\Panier\view.php');
-require_once ('D:\ProjetEnPhp\ProjetenPhp\src\Panier\request.php');
+require('.\Panier\view.php');
+require_once('.\Panier\request.php');
 
-function panier_controller(){
+function handler_panier(){
     $view = panier_view();
     $request = request_panier();
     echo $view;

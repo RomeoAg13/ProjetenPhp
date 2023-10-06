@@ -13,15 +13,30 @@ function route_request(){
     }
     if ($route === "/Panier" || $route === "/panier"){
         
-        require_once('./Panier/controller.php');
-        panier_controller();
+        require('./Panier/controller.php');
+       handler_panier();
 
         return;
     }
     if ($route === "/Login"|| $route === "/login" ){
         
-        require_once('./Login/controller.php');
-        Login_controller();
+        require('./Login/controller.php');
+        handler_login();
+
+        return;
+    }
+    if ($route === "/TousLesProduits"|| $route === "/touslesproduits" ){
+        
+        require('./AllProduct/controller.php');
+        handler_allproducts();
+
+        return;
+    }
+
+    if ($route === "/EnSavoirPlus"|| $route === "/ensavoirplus" ){
+        
+        require('./SavoirPlus/controller.php');
+        handler_savoirplus();
 
         return;
     }
