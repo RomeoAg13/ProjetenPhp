@@ -7,5 +7,5 @@ try{
 }
 catch(PDOException $e){
     echo $e -> getMessage();
-    echo "non connecte";
+    echo "Pas connecté ";
 }
