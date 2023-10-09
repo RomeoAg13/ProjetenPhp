@@ -40,6 +40,22 @@ function route_request(){
 
         return;
     }
+
+    if ($route === "/Recherche"|| $route === "/recherche" ){
+        
+        require('./Recherche/search.php');
+        search_bar();
+
+        return;
+    }
+
+    if ($route === "/request.php"|| $route === "/request.php" ){
+        
+        require('./Panier/controller.php');
+        handler_panier();
+
+        return;
+    }
     echo "<h1>404 NOT FOUND</h1>";
 
 }

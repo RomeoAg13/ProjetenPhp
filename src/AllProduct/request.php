@@ -45,24 +45,27 @@ function request_allproducts()
             if ($result->rowCount() > 0) {
                 echo "<div class='boisson-homepage'>";
                 while ($afficher = $result->fetch(PDO::FETCH_ASSOC)) {
-                    if ($count % 5 == 0) {
+                    if ($count % 3 == 0) {
                         echo "<div class='boisson-row'>";
                     }
                     echo "
-                        <div class='boisson-all'>
-                            <img src='" . $afficher['image'] . "'/>
-                            <div class='boisson-texte'>
-                                <h3>" . $afficher['nom'] . "</h3>
-                                <p>Marque : " . $afficher['marque'] . "</p>
-                                <p>Prix : <b>" . $afficher['prix'] . "</b></p>
-                                
-                                <button type='submit' name='ajouter_au_panier'>Ajouter au panier</button>
-                            </div>
-                        </div>
-                    ";
+    <div class='boisson-all'>
+        <img src='" . $afficher['image'] . "'/>
+        <div class='boisson-texte'>
+            <h3>" . $afficher['nom'] . "</h3>
+            <p>Marque : " . $afficher['marque'] . "</p>
+            <p>Prix : <b>" . $afficher['prix'] . "</b></p>
+            
+            <form method='post' action='request.php'>
+    <input type='hidden' name='boisson_id' value='" . $afficher['id'] . "'>
+    <button type='submit' name='ajouter_au_panier'>Ajouter au panier</button>
+</form>
+        </div>
+    </div>
+";
                     $count++;
 
-                    if ($count % 5 == 0) {
+                    if ($count % 3 == 0) {
                         echo "</div>";
                     }
                 }

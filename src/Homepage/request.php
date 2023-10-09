@@ -12,9 +12,8 @@ function request_homepage(){
 
     
         if ($result->rowCount() > 0)
-         {
-            
-             echo "<div class='boisson-homepage'>";
+        {
+            echo "<div class='boisson-homepage'>";
             while ($afficher = $result->fetch(PDO::FETCH_ASSOC)) {
                 echo "
                     <div class='boisson-all'>
@@ -25,7 +24,6 @@ function request_homepage(){
                             <p>Prix : <b>" . $afficher['prix'] . "</b></p>
                             
                         </div>
-                        <button type='submit' name='ajouter_au_panier'>Ajouter au panier</button>
                     </div>
                     
                     ";
@@ -41,7 +39,7 @@ function request_homepage(){
 
 
     }catch (PDOException $e)
-      {
+    {
         echo $e->getMessage();
         echo "Pas connecté ";
     }

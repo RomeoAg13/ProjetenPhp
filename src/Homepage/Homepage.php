@@ -53,7 +53,7 @@ function Homepage_view(){
         margin: 0;
         padding: 0;   
         overflow-x:hidden; 
-       
+
     }
     
     
@@ -75,8 +75,7 @@ function Homepage_view(){
     nav ul {
         list-style-type: none;
         padding: 0;
-        display: flex;
-       
+        display: flex; 
     }
 
     nav ul li {
@@ -88,7 +87,6 @@ function Homepage_view(){
         text-decoration: none;
     }
     
-  
 
     nav ul li a:hover {
         color: #767676;
@@ -102,7 +100,7 @@ function Homepage_view(){
         align-items: center; 
         width:100%;
         height: 30vh;
-       
+
     }
 
     form{
@@ -160,17 +158,7 @@ function Homepage_view(){
         color: #777;
         margin: 5px 0;
     }
-    button{
-        margin:10px;
-        background-color:  #3cb5d8;
-        border-color:#3cb5d8;
-        color:white;
-        width:30%;
-        height:40px;
-        cursor:pointer;
-    }
     
-
     footer{
         position:absolute;
         bottom:0 ;

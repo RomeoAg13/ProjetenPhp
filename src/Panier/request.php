@@ -1,37 +1,75 @@
-<?php 
+<?php
+
 function request_panier(){
-    try {
 
-        $bdd = new PDO('pgsql:host=localhost;port=5432;dbname=VenteBoisson', 'postgres', '1234');
-
-        $query = "SELECT * FROM Boisson ORDER BY date_ajout DESC LIMIT 1 ";
-        $result = $bdd->query($query);
+    session_start();
+    
+    if (!isset($_SESSION['panier'])) {
+        $_SESSION['panier'] = array();
+    }
+    
+    $total = 0;
+    
+    if (isset($_POST['boisson_id'])) {
+        $boisson_id = $_POST['boisson_id'];
         
-        while ($row = $result->fetch()) {
-            echo "
-            <main class='panier'> 
-                <section>
-                    <table>
-                        <tr>
-                            <th>Nom</th>
-                            <th>Prix</th>
-                            <th>Quantite</th>
-                            <th>Action</th>
-                        </tr>
-                        <tr>
-                            <td><img src='" . $row['image'] . "'/></td>
-                            <td>".$row['prix']."</td>
-                            <td>1</td>
-                            <td><i class='ph ph-trash'></i></td>
-                        <tr>
-                    </table>
-                </section                
-            </main>";
-        }
+        $_SESSION['panier'][] = $boisson_id;
+        
 
-    }catch (PDOException $e)
-      {
-        echo $e->getMessage();
-        echo "Pas connecté ";
+        header('Location: Panier');
+        exit;
+    }
+    
+
+    if (isset($_POST['supprimer_boisson'])) {
+        $boisson_id_a_supprimer = $_POST['boisson_id_a_supprimer'];
+
+        $_SESSION['panier'] = array_diff($_SESSION['panier'], array($boisson_id_a_supprimer));
+        
+
+        header('Location: Panier');
+        exit;
+    }
+    
+    if (empty($_SESSION['panier'])) {
+        echo "<main><span>Le panier est vide.</span></main>";
+    } else {
+
+        try {
+            $bdd = new PDO('pgsql:host=localhost;port=5432;dbname=VenteBoisson', 'postgres', '1234');
+            
+            foreach ($_SESSION['panier'] as $boisson_id) {
+                $requete = $bdd->prepare("SELECT * FROM Boisson WHERE id = :id");
+                $requete->bindParam(':id', $boisson_id, PDO::PARAM_INT);
+                $requete->execute();
+                $boisson = $requete->fetch(PDO::FETCH_ASSOC);
+                
+
+                $total += $boisson['prix'];
+                
+                echo "
+                    <main>
+                        <div class='boisson-panier'>
+                            <img src='" . $boisson['image'] . "'/>
+                            <div class='boisson-texte'>
+                                <h3>" . $boisson['nom'] . "</h3>
+                                <p>Marque : " . $boisson['marque'] . "</p>
+                                <p>Prix : <b>" . $boisson['prix'] . "</b></p>
+                            </div>
+                            <form method='post' action='request.php'>
+                                <input type='hidden' name='boisson_id_a_supprimer' value='" . $boisson_id . "'>
+                                <button type='submit' name='supprimer_boisson'><i class='ph ph-trash-simple'></i></button>
+                            </form>
+                        </div>
+                    </main>
+                ";
+            }
+            
+            echo "<h2>Total du panier : " . $total. "</h2>";
+            
+        } catch (PDOException $e) {
+            echo "Erreur : " . $e->getMessage();
+        }
     }
 }
+?>

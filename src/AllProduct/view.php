@@ -24,10 +24,11 @@
                 function allproducts_view(){};
                 
             ?>
-             <form method="POST" action="">
+             <form method="POST" action="Recherche">
         <input class='searchbar' type="text" name="nom" placeholder="Entrez le nom à rechercher">
         <input type="submit" name="rechercher" value="Rechercher">
     </form>
+    
 
     
         </main>
@@ -111,7 +112,7 @@
             width:200px;
         }
         .boisson-homepage {
-            width:85%;
+            width:100%;
             margin: 10px;
             padding: 10px;
             text-align: center;
@@ -119,13 +120,20 @@
             flex-wrap: wrap;
 
         }
+
+        .boisson-row {
+            width: 30%;
+            margin-left: 54px;
+        }
+
         .boisson-all{
             width: 80%;
-            margin-left: 250px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
             border: 1px solid #ccc;
             border-radius: 5px;
             margin-bottom: 50px;
+            margin: 10px 0px 30px 25px;
+
             
         }
         .boisson-homepage img {

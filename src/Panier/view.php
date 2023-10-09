@@ -3,15 +3,11 @@
     <head>
         <meta charset="utf-8" />
         <script src="https://unpkg.com/@phosphor-icons/web"></script>
-
         <title>SavourezLaSoif</title>
-
     </head>
-
     <?php
         function panier_view(){}
-
-?>
+    ?>
     <body>
         <header>
             <h1> <a href='/'>SavourezLaSoif</a></h1>
@@ -25,8 +21,9 @@
                 </ul>
             </nav>
         </header>
-        <a href="/TousLesProduits">Boutique</a>
-
+            <h1>Contenu Du Panier : </h1>
+            
+        
     <style>
     
     body {
@@ -34,6 +31,7 @@
         margin: 0;
         padding: 0;   
         overflow-x:hidden; 
+        background-color:whitesmoke;
     }
     
     
@@ -63,7 +61,6 @@
         padding: 0;
         display: flex; 
     }
-
     nav ul li {
         margin-right:40px;
     }
@@ -72,18 +69,8 @@
         color:white;
         text-decoration: none;
     }
-    
-  
-
     nav ul li a:hover {
         color: #767676;
-    }
-
-    .panier{
-        display:flex;
-        
-        justify-content:center;
-        min-height:100vh;
     }
 
     img{
@@ -91,38 +78,51 @@
         padding: 8px 0;
     }
 
-    .panier section{
-        
-        background-color:white;
-        padding:10px;
-        border-radius:6px;
-    }
-
-    table{
-        border-collapse:collapse;
-        width: 10px;
-        letter-spacing:2px;
-        font-size:20px;
-    }
-    th{
-        padding:20px;
-       
-        font-weight:400;
-    }
-    td{
-        border-top:0.5px solid #999;
+    h2{
         text-align:center;
-        color:#37a6ff;
-
+        
     }
 
-    tr{
-        border-bottom: 0.5px solid #999;
+    main {
+        background-color:white;
+        width: 60%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
     }
+    main img{
+        width :15%;
+    }
+    main span{
+        display:flex;
+        justify-content:center;
+    }
+
+    .boisson-panier {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content:center;
+        align-content: center;
+        align-items: center;
+    }
+
+    form button{
+        margin-left:20px;
+        font-size:25px;
+        color:red;
+        background-color:white;
+        border:none;
+        cursor:pointer;
+    }
+
+    h1{
+        display:flex;
+        justify-content:center;
+    }
+
     </style>
     
     
-
     </body >
-
 </html>
