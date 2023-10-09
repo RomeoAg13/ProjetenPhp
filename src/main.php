@@ -14,7 +14,7 @@ function route_request(){
     if ($route === "/Panier" || $route === "/panier"){
         
         require('./Panier/controller.php');
-       handler_panier();
+        handler_panier();
 
         return;
     }
@@ -40,10 +40,6 @@ function route_request(){
 
         return;
     }
-
-   
-
-
     echo "<h1>404 NOT FOUND</h1>";
 
 }

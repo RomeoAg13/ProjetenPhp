@@ -9,11 +9,14 @@
     
 <?php
 
+
+
 function Homepage_view(){
     echo "
 
+
     <header>
-        <h1>~SavourezLaSoif~</h1>
+        <h1>SavourezLaSoif</h1>
     
         <nav>
             <ul>
@@ -25,26 +28,34 @@ function Homepage_view(){
         </nav>
     </header>
     
+
     <main>
 
-    <input type='search' name='q' placeholder='Cherche une boisson...' />
-    <i class='ph ph-magnifying-glass'></i>
+    
 
+    
+
+
+    
+    <h2> Nos dernières Boissons : </h2>
+
+    <?php request_homepage(); ?>
     </main>
 
-<footer>
-    <p>&copy; 2023 SavourezLaSoif. Romeo Agostino</p>
-</footer>
+    <footer>
+        <p>&copy; 2023 Agostino Roméo. Tous droits réservés.</p>
+    </footer>
 
     <style>
     
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         margin: 0;
-        padding: 0;        
-        background-image:url('https://i.ibb.co/S36gtx2/Firefly-fond-de-boissons-avec-des-couleurs-sur-un-fond-blanc-1920x1080-80540.jpg');
-        background-size:cover;
+        padding: 0;   
+        overflow-x:hidden; 
+       
     }
+    
     
     header {
         display:flex;
@@ -83,71 +94,94 @@ function Homepage_view(){
         color: #767676;
     }
     
-    .products {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
-    
-    .product {
-        background-color: #fff;
-        width: 30%;
-        margin: 15px 0;
-        padding: 20px;
-        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-        transition: 0.3s;
-    }
-    
-    .product:hover {
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    }
-    
-    .product img {
-        width: 100%;
-        height: auto;
-    }
-    
-    .product h2 {
-        margin: 20px 0;
-        color: #333;
-    }
-    
-    .product p {
-        color: #666;
-    }
     
     main {
         display: flex;
+        flex-direction:column;
         justify-content: center;
         align-items: center; 
         width:100%;
-        height: 82vh;
+        height: 30vh;
        
     }
 
-    input{
-        box-shadow: 5px 5px 19px 2px #a7a8a880;
-        width: 50%;
-        border-radius:20px;
-        border:1px solid grey;
-        padding: 10px; 
-        font-size: 16px;  
-
+    form{
+        width:15%;
     }
+
+    h2{
+        font-size:40px;
+        margin-top:100px;
+        text-decoration:underline;
+    }
+
+    img{
+        width:200px;
+    }
+
+
+    .boisson-homepage {
+        width:100%;
+        margin: 10px;
+        padding: 10px;
+        text-align: center;
+        display: flex;
+        
+    }
+    .boisson-all{
+        width:15%;
+        
+        margin-left:250px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .boisson-homepage img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .boisson-texte{
+        display:block;
+    }
+    
+    .boisson-texte {
+        margin-top: 10px;
+    }
+    
+    .boisson-texte h3 {
+        font-size: 20px;
+        color: #333;
+    }
+    
+    .boisson-texte p {
+        font-size: 16px;
+        color: #777;
+        margin: 5px 0;
+    }
+    button{
+        margin:10px;
+        background-color:  #3cb5d8;
+        border-color:#3cb5d8;
+        color:white;
+        width:30%;
+        height:40px;
+        cursor:pointer;
+    }
+    
 
     footer{
-       position:absolute;
-       bottom:0;
-       width:100%;
+        position:absolute;
+        bottom:0 ;
         background-color:#242424;
+        width:100%;
+        color:white;
     }
-
     footer p {
         display:flex;
         justify-content:center;
-        color:white;
     }
-
 
     </style>
     
