@@ -20,7 +20,7 @@
                 <ul>
                     <li><a href='/TousLesProduits'>Tous les Produits</a></li>
                     <li><a href='/Panier'><i class='ph ph-shopping-cart-simple'></i></a></li>
-                    <li><a href='/Login'><i class='ph ph-sign-in'></i></a></li>
+                    <li><a href='/Connection'><i class='ph ph-sign-in'></i></a></li>
                     <li><a href='/EnSavoirPlus'><i class='ph ph-info dessus'></i></a></li>
                 </ul>
             </nav>

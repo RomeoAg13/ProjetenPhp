@@ -1,16 +1,11 @@
 <?php
 
 
-function Login_view(){};
+function Login_view(){
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
-
-    // Effectuez la validation du nom d'utilisateur et du mot de passe
-    // Vous devez également hacher et comparer le mot de passe avec celui stocké en base de données
-
-    // Si l'authentification réussit, redirigez l'utilisateur vers une page de succès
     if (password_verify($password, $dbPassword)) {
         $_SESSION["logged_in"] = true;
         header("Location: welcome.php");
@@ -18,6 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "Identifiants incorrects.";
     }
+}
 }
 ?>
 

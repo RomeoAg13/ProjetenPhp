@@ -9,9 +9,8 @@ function request_allproducts()
         $count = 0;
 
         if (isset($_POST['rechercher'])) {
-            $nom = '%' . $_POST['nom'] . '%'; // Ajoutez des caractères de joker (%) pour rechercher une partie du nom
+            $nom = '%' . $_POST['nom'] . '%'; 
 
-            // Requête SQL préparée pour rechercher par nom (utilisation de ILIKE)
             $requete = $bdd->prepare("SELECT * FROM Boisson WHERE nom ILIKE :nom");
             $requete->bindParam(':nom', $nom, PDO::PARAM_STR);
             $requete->execute();

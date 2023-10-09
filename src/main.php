@@ -18,7 +18,7 @@ function route_request(){
 
         return;
     }
-    if ($route === "/Login"|| $route === "/login" ){
+    if ($route === "/Connection"|| $route === "/connection" ){
         
         require('./Login/controller.php');
         handler_login();
