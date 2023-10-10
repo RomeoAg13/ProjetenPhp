@@ -1,51 +1,73 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <script src="https://unpkg.com/@phosphor-icons/web"></script>
-        <title>SavourezLaSoif</title>
-
-    </head>
-    
 <?php
 
+function Homepage_view() {
+    session_start();
 
-
-function Homepage_view(){
     echo "
-
-
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset='utf-8' />
+        <script src='https://unpkg.com/@phosphor-icons/web'></script>
+        <title>SavourezLaSoif</title>
+        <style>
+            /* Your CSS styles here */
+        </style>
+    </head>
+    <body>
     <header>
         <h1>SavourezLaSoif</h1>
-    
         <nav>
             <ul>
                 <li><a href='/TousLesProduits'>Tous les Produits</a></li>
                 <li><a href='/Panier'><i class='ph ph-shopping-cart-simple'></i></a></li>
-                <li><a href='/Connection'><i class='ph ph-sign-in'></i></a></li>
+    ";
+
+    if (isset($_SESSION["user_id"])) {
+        // User is logged in, show logout button and user's name
+        try {
+            $bdd = new PDO('pgsql:host=localhost;port=5432;dbname=VenteBoisson', 'postgres', '1234');
+            $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            $user_id = $_SESSION["user_id"];
+            $query = "SELECT user_name FROM utilisateur WHERE id_user = ?";
+
+            $user_info = $bdd->prepare($query);
+            $user_info->execute([$user_id]);
+            $user_data = $user_info->fetch(PDO::FETCH_ASSOC);
+
+            $username = $user_data["user_name"];
+
+            echo "
+            <li>Bienvenue, $username</li>
+                <li><a href='/Logout'>Déconnexion</a></li>
+            ";
+        } catch (PDOException $e) {
+            die("Erreur de connexion à la base de données : " . $e->getMessage());
+        }
+    } else {
+        echo "
+            <li><a href='/Connection'><i class='ph ph-sign-in'></i></a></li>
+        ";
+    }
+
+    echo "
                 <li><a href='/EnSavoirPlus'><i class='ph ph-info'></i></a></li>
             </ul>
         </nav>
     </header>
-    
-
     <main>
+        <h2> Nos dernières Boissons : </h2>
+        <?php request_homepage();?>
+    ";
 
-    
-
-    
-
-
-    
-    <h2> Nos dernières Boissons : </h2>
-
-    <?php request_homepage(); ?>
+    echo "
     </main>
-
     <footer>
         <p>&copy; 2023 Agostino Roméo. Tous droits réservés.</p>
     </footer>
-
+    </body>
+    </html>
     <style>
     
     body {
@@ -172,10 +194,6 @@ function Homepage_view(){
     }
 
     </style>
-    
     ";
-    
 }
 ?>
-
-</html>

@@ -1,8 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>Connexion</title>
+    <title>Inscription</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Inscription</h2>
+        
+        <?php
+        function inscription_view(){
+            $messages = "";
+            if (isset($error_message)) {
+                $messages .= "<div class='error-message'>$error_message</div>";
+            }
+            if (isset($success_message)) {
+                $messages .= "<div>$success_message</div>";
+            }
+            return $messages;
+        }
+        ?>
+        <form action="Inscrire" method="post">
+            <label for="user_name">Nom d'utilisateur :</label>
+            <input type="text" name="user_name" required><br><br>
+        
+            <label for="mail">Email :</label>
+            <input type="email" name="mail" required><br><br>
+            
+            <label for="mdp_user">Mot de passe :</label>
+            <input type="password" name="mdp_user" required><br><br>
+            
+            <input type="submit" value="S'inscrire">
+        </form>
+        <p>Si vous avez déjà un compte, <a href="/Connection">connectez-vous ici</a>.</p>
+    </div>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,7 +45,6 @@
             align-items: center;
             min-height: 100vh;
             flex-direction: column-reverse;
-
         }
 
         .container {
@@ -39,6 +69,7 @@
         }
 
         input[type="text"],
+        input[type="email"],
         input[type="password"] {
             width: 100%;
             padding: 12px;
@@ -50,6 +81,7 @@
         }
 
         input[type="text"]:focus,
+        input[type="email"]:focus,
         input[type="password"]:focus {
             border-color: #3498db;
             outline: none;
@@ -69,11 +101,7 @@
         input[type="submit"]:hover {
             background-color: #2980b9;
         }
-        span {
-            margin: 20px 0px 20px 0px;
-            color: #555;
-            font-size:20px;
-        }
+
         .error-message {
             color: #e74c3c;
             margin-top: 10px;
@@ -82,6 +110,11 @@
         p {
             margin-top: 20px;
             color: #555;
+        }
+        span {
+            margin: 20px 0px 20px 0px;
+            color: #555;
+            font-size:20px;
         }
 
         a {
@@ -94,28 +127,5 @@
             color: #2980b9;
         }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h2>Connexion</h2>
-        <?php
-        function login_view(){
-            if (isset($error_message)) {
-                echo "<p class='error-message'>$error_message</p>";
-            }
-        };
-        ?>
-        <form action="/Connection" method="post">
-            <label for="mail">Email :</label>
-            <input type="text" name="mail" required>
-            
-            <label for="mdp_user">Mot de passe :</label>
-            <input type="password" name="mdp_user" required>
-            
-            <input type="submit" value="Se connecter">
-        </form>
-
-        <p>Si vous n'avez pas de compte, <a href="/Inscrire">inscrivez-vous ici</a>.</p>
-    </div>
 </body>
 </html>

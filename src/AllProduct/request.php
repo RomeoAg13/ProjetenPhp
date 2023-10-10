@@ -44,7 +44,7 @@ function request_allproducts()
             if ($result->rowCount() > 0) {
                 echo "<div class='boisson-homepage'>";
                 while ($afficher = $result->fetch(PDO::FETCH_ASSOC)) {
-                    if ($count % 3 == 0) {
+                    if ($count % 2 == 0) {
                         echo "<div class='boisson-row'>";
                     }
                     echo "
@@ -55,7 +55,7 @@ function request_allproducts()
             <p>Marque : " . $afficher['marque'] . "</p>
             <p>Prix : <b>" . $afficher['prix'] . "</b></p>
             
-            <form method='post' action='request.php'>
+            <form method='post' action='Panier'>
     <input type='hidden' name='boisson_id' value='" . $afficher['id'] . "'>
     <button type='submit' name='ajouter_au_panier'>Ajouter au panier</button>
 </form>
@@ -64,7 +64,7 @@ function request_allproducts()
 ";
                     $count++;
 
-                    if ($count % 3 == 0) {
+                    if ($count % 2 == 0) {
                         echo "</div>";
                     }
                 }

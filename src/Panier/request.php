@@ -56,7 +56,7 @@ function request_panier(){
                                 <p>Marque : " . $boisson['marque'] . "</p>
                                 <p>Prix : <b>" . $boisson['prix'] . "</b></p>
                             </div>
-                            <form method='post' action='request.php'>
+                            <form method='post' action='Panier'>
                                 <input type='hidden' name='boisson_id_a_supprimer' value='" . $boisson_id . "'>
                                 <button type='submit' name='supprimer_boisson'><i class='ph ph-trash-simple'></i></button>
                             </form>

@@ -25,6 +25,19 @@ function route_request(){
 
         return;
     }
+
+    if ($route === "/Inscrire"|| $route === "/inscrire" ){
+        require('./Inscription/controller.php');
+        handler_inscription();
+        return;
+    }
+
+    if ($route === "/Logout"|| $route === "/logout" ){
+        require('./Login/Logout.php');
+        return;
+    }
+
+
     if ($route === "/TousLesProduits"|| $route === "/touslesproduits" ){
         
         require('./AllProduct/controller.php');
@@ -45,14 +58,6 @@ function route_request(){
         
         require('./Recherche/search.php');
         search_bar();
-
-        return;
-    }
-
-    if ($route === "/request.php"|| $route === "/request.php" ){
-        
-        require('./Panier/controller.php');
-        handler_panier();
 
         return;
     }
