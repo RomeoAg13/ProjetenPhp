@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8" />
         <script src="https://unpkg.com/@phosphor-icons/web"></script>
-
         <title>SavourezLaSoif</title>
     </head>
     <body >
@@ -24,13 +23,10 @@
                 function allproducts_view(){};
                 
             ?>
-             <form method="POST" action="Recherche">
-        <input class='searchbar' type="text" name="nom" placeholder="Entrez le nom à rechercher">
-        <input type="submit" name="rechercher" value="Rechercher">
-    </form>
-    
-
-    
+            <form method="POST" action="Recherche">
+                <input class='searchbar' type="text" name="nom" placeholder="Entrez le nom à rechercher">
+                <input type="submit" name="rechercher" value="Rechercher">
+            </form>
         </main>
 
 

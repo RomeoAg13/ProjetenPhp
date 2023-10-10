@@ -26,63 +26,63 @@
 
 function search_bar()
 {
-            $bdd = new PDO('pgsql:host=localhost;port=5432;dbname=VenteBoisson', 'postgres', '1234');
-if (isset($_POST['rechercher'])) {
-    $nom = '%' . $_POST['nom'] . '%'; 
-
-
-    $requete = $bdd->prepare("SELECT * FROM Boisson WHERE nom ILIKE :nom");
-    $requete->bindParam(':nom', $nom, PDO::PARAM_STR);
-    $requete->execute();
-    if ($requete->rowCount() > 0) {
-        echo "<main><h2><a href='/TousLesProduits' class='button'><i class='ph ph-arrow-left'></i></a></h2>
-        <h2>Résultats de la recherche :</h2></main>";
-        echo "<div class='boisson-homepage'>";
-        while ($row = $requete->fetch(PDO::FETCH_ASSOC)) {
+    $bdd = new PDO('pgsql:host=localhost;port=5432;dbname=VenteBoisson', 'postgres', '1234');
+    if (isset($_POST['rechercher'])) {
+        $nom = '%' . $_POST['nom'] . '%'; 
+        $requete->bindParam(':nom', $nom, PDO::PARAM_STR);
+        $requete = $bdd->prepare("SELECT * FROM Boisson WHERE nom ILIKE :nom");
+        if ($requete->rowCount() > 0) {
+            $requete->execute();
+            echo "<main>
+            <h2>
+            <a href='/TousLesProduits' class='button'><i class='ph ph-arrow-left'></i></a>
+            </h2>
+            <h2>Résultats de la recherche :</h2></main>";
             echo "
-                <div class='boisson-all'>
-                    <img src='" . $row['image'] . "'/>
-                    <div class='boisson-texte'>
-                        <h3>" . $row['nom'] . "</h3>
-                        <p>Marque : " . $row['marque'] . "</p>
-                        <p>Prix : <b>" . $row['prix'] . "</b></p>
-                        
-                        <button type='submit' name='ajouter_au_panier'>Ajouter au panier</button>
+            <div class='boisson-homepage'>";
+            while ($row = $requete->fetch(PDO::FETCH_ASSOC)) {
+                echo "
+                    <div class='boisson-all'>
+                        <img src='" . $row['image'] . "'/>
+                        <div class='boisson-texte'>
+                            <h3>" . $row['nom'] . "</h3>
+                            <p>Marque : " . $row['marque'] . "</p>
+                            <p>Prix : <b>" . $row['prix'] . "</b></p>
+                            <button type='submit' name='ajouter_au_panier'>Ajouter au panier</button>
+                        </div>
                     </div>
-                </div>
-                <style>
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;   
-            overflow-x:hidden; 
+            <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 0;
+                padding: 0;   
+                overflow-x:hidden; 
+            }
+            header {
+                display:flex;
+                align-items:center;
+                justify-content:space-between;
+                background-color:#242424;
+                color: white;
+                padding: 10px;
+                text-align: center;
+            }
+            header h1 {
+                margin: 0;
+            }
+            h1 a{
+            text-decoration:none;
+            color:WHITE;
         }
-        header {
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-            background-color:#242424;
-            color: white;
-            padding: 10px;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-        }
-        h1 a{
-        text-decoration:none;
-        color:WHITE;
-    }
 
-    .dessus{
-        color:grey;
-    }
+        .dessus{
+           color:grey;
+        }
 
-    main {
-        display: flex;
-        justify-content: center;
-    }
+        main {
+            display: flex;
+            justify-content: center;
+        }
         button{
             margin:10px;
             background-color:  #3cb5d8;
