@@ -18,11 +18,6 @@
 6. Ajouter la couche de peinture (CSS)🟢
 7.Implementer le Router (navigation entre les pages web) avec erreurs si mauvais lien...🟢
 -----------------------------------------------------------------------------------------------------
-Idée de site : Site de Vente de fleurs. 
-Page 1 : Homepage avec ptite presentation du site
-Page 2 : Boutique avec les fleurs disponibles
-Page 3 : Page de connection 
-Page 4 : Panier 
-Page 5 : page 'la team'
+
 ------------------------------------------------------------------------------------------------------
-Tout est a rendre sur github : https://github.com/MathieuLeBozo/projet_php/tree/main/src
+Tout est a rendre sur github 
