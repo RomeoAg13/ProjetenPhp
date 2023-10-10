@@ -2,7 +2,7 @@
 <html?>
     <head>
         <meta charset="utf-8" />
-        <script src="https://unpkg.com/@phosphor-icons/web"></script>
+        <script src="https://unpkg.com/@phosphor-icons/web"></script> 
 
         <title>SavourezLaSoif</title>
 
@@ -26,31 +26,30 @@
 
 function search_bar()
 {
-    $bdd = new PDO('pgsql:host=localhost;port=5432;dbname=VenteBoisson', 'postgres', '1234');
-    if (isset($_POST['rechercher'])) {
-        $nom = '%' . $_POST['nom'] . '%'; 
-        $requete->bindParam(':nom', $nom, PDO::PARAM_STR);
-        $requete = $bdd->prepare("SELECT * FROM Boisson WHERE nom ILIKE :nom");
-        if ($requete->rowCount() > 0) {
-            $requete->execute();
-            echo "<main>
-            <h2>
-            <a href='/TousLesProduits' class='button'><i class='ph ph-arrow-left'></i></a>
-            </h2>
-            <h2>Résultats de la recherche :</h2></main>";
+            $bdd = new PDO('pgsql:host=localhost;port=5432;dbname=VenteBoisson', 'postgres', '1234');
+if (isset($_POST['rechercher'])) {
+    $nom = '%' . $_POST['nom'] . '%'; 
+
+
+    $requete = $bdd->prepare("SELECT * FROM Boisson WHERE nom ILIKE :nom");
+    $requete->bindParam(':nom', $nom, PDO::PARAM_STR);
+    $requete->execute();
+    if ($requete->rowCount() > 0) {
+        echo "<main><h2><a href='/TousLesProduits' class='button'><i class='ph ph-arrow-left'></i></a></h2>
+        <h2>Résultats de la recherche :</h2></main>";
+        echo "<div class='boisson-homepage'>";
+        while ($row = $requete->fetch(PDO::FETCH_ASSOC)) {
             echo "
-            <div class='boisson-homepage'>";
-            while ($row = $requete->fetch(PDO::FETCH_ASSOC)) {
-                echo "
-                    <div class='boisson-all'>
-                        <img src='" . $row['image'] . "'/>
-                        <div class='boisson-texte'>
-                            <h3>" . $row['nom'] . "</h3>
-                            <p>Marque : " . $row['marque'] . "</p>
-                            <p>Prix : <b>" . $row['prix'] . "</b></p>
-                            <button type='submit' name='ajouter_au_panier'>Ajouter au panier</button>
-                        </div>
+                <div class='boisson-all'>
+                    <img src='" . $row['image'] . "'/>
+                    <div class='boisson-texte'>
+                        <h3>" . $row['nom'] . "</h3>
+                        <p>Marque : " . $row['marque'] . "</p>
+                        <p>Prix : <b>" . $row['prix'] . "</b></p>
+                        
+                        <button type='submit' name='ajouter_au_panier'>Ajouter au panier</button>
                     </div>
+                </div>
             <style>
             body {
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
