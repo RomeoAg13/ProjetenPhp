@@ -1,3 +1,7 @@
+<?php
+function allproducts_view(){};
+    ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,41 +9,17 @@
         <script src="https://unpkg.com/@phosphor-icons/web"></script>
         <title>SavourezLaSoif</title>
     </head>
-    <body >
-        <header>
-            <h1> <a href='/'>SavourezLaSoif</a></h1>
-            <nav>
-                <ul>
-                    <li ><a href='/TousLesProduits'class="dessus">Tous les Produits</a></li>
-                    <li><a href='/Panier'><i class='ph ph-shopping-cart-simple'></i></a></li>
-                    <li><a href='/Connection'><i class='ph ph-sign-in'></i></a></li>
-                    <li><a href='/EnSavoirPlus'><i class='ph ph-info'></i></a></li>
-                </ul>
-            </nav>
-        </header>
-        
+    <body>
+        <?php 
+            include('header.php');
+            header_view();
+        ?> 
         <main>
-            <?php
-                function allproducts_view(){};
-                
-            ?>
             <form method="POST" action="Recherche">
                 <input class='searchbar' type="text" name="nom" placeholder="Entrez le nom à rechercher">
                 <input type="submit" name="rechercher" value="Rechercher">
             </form>
         </main>
-
-
-
-
-
-
-
-
-
-
-
-
         <style>
         
         body {
@@ -48,28 +28,6 @@
             padding: 0;   
             overflow-x:hidden; 
         }
-        header {
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-            background-color:#242424;
-            color: white;
-            padding: 10px;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-        }
-        h1 a{
-        text-decoration:none;
-        color:WHITE;
-    }
-
-    .dessus{
-        color:grey;
-    }
-
-
         button{
             margin:10px;
             background-color:  #3cb5d8;
@@ -85,25 +43,7 @@
             width:35%;
             height:50px;
         }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            display: flex;   
-        }
-        nav ul li {
-            margin-right:40px;
-        }
-        nav ul li a {
-            color:white;
-            text-decoration: none;
-        } 
-        nav ul li a:hover {
-            color: #767676;
-        }
-        h2{
-            margin-top:100px;
-            text-decoration:underline;
-        }
+        
         img{
             width:200px;
         }
@@ -161,6 +101,8 @@
         }
 
         h2{
+            margin-top:100px;
+            text-decoration:underline;
             display:flex;
             justify-content:center;
             font-size:35px;
@@ -178,6 +120,10 @@
 
         }
 
+        span{
+            display:flex;
+            justify-content:center;
+        }
 
         </style>
     </body >

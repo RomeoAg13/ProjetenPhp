@@ -1,3 +1,7 @@
+<?php
+    function savoirplus_view(){}
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,29 +12,17 @@
 
     </head>
 
-    <?php
-        function savoirplus_view(){}
-
-?>
     <body>
-        <header>
-            <h1> <a href='/'>SavourezLaSoif</a></h1>
-    
-            <nav>
-                <ul>
-                    <li><a href='/TousLesProduits'>Tous les Produits</a></li>
-                    <li><a href='/Panier'><i class='ph ph-shopping-cart-simple'></i></a></li>
-                    <li><a href='/Connection'><i class='ph ph-sign-in'></i></a></li>
-                    <li><a href='/EnSavoirPlus'><i class='ph ph-info dessus'></i></a></li>
-                </ul>
-            </nav>
-        </header>
+        <?php 
+            include('header.php');
+            header_view();
+        ?>
 
         <h1> <u>Qui suis je ? </u></h1>
         <main>
             <p>Je suis Roméo Agostino, étudiant en B2 développement web et application.<br>
             Voici mon Site de vente de Boissons.<br>
-        Si vous avez des questions, n'hésitez pas à me contacter à l'adresse e-mail suivante : <a href="mailto:romeo.agostino@efrei.net">romeo.agostino@efrei.net</a></p>
+        Si vous avez des questions, n'hésitez pas à me contacter à l'adresse e-mail suivante : <a class="mail" href="mailto:romeo.agostino@efrei.net">romeo.agostino@efrei.net</a></p>
         </main>
 
         
@@ -42,8 +34,9 @@
 
     <style>
     
-    .dessus{
-        color:grey;
+    .mail{
+        color:blue !important;
+        text-decoration:underline  !important;
     }
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

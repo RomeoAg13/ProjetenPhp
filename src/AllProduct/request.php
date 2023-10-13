@@ -1,6 +1,7 @@
 <?php
 require_once('./sqlconnection/sql.php');
 
+// Fonction pour afficher tous les produits
 function request_allproducts()
 {
     try {
@@ -9,7 +10,7 @@ function request_allproducts()
         $count = 0;
 
         if (isset($_POST['rechercher'])) {
-            $nom = '%' . $_POST['nom'] . '%'; 
+            $nom = '%' . $_POST['nom'] . '%';
 
             $requete = $bdd->prepare("SELECT * FROM Boisson WHERE nom ILIKE :nom");
             $requete->bindParam(':nom', $nom, PDO::PARAM_STR);
@@ -27,7 +28,10 @@ function request_allproducts()
                                 <p>Marque : " . $row['marque'] . "</p>
                                 <p>Prix : <b>" . $row['prix'] . "</b></p>
                                 
-                                <button type='submit' name='ajouter_au_panier'>Ajouter au panier</button>
+                                <form method='post' action=''>
+                                    <input type='hidden' name='boisson_id' value='" . $row['id'] . "'>
+                                    <button type='submit' name='ajouter_au_panier'>Ajouter au panier</button>
+                                </form>
                             </div>
                         </div>
                     ";
@@ -37,7 +41,6 @@ function request_allproducts()
                 echo "Aucun résultat trouvé.";
             }
         } else {
-
             $query = "SELECT * FROM Boisson ORDER BY date_ajout ASC ";
             $result = $bdd->query($query);
 
@@ -48,22 +51,21 @@ function request_allproducts()
                         echo "<div class='boisson-row'>";
                     }
                     echo "
-    <div class='boisson-all'>
-        <img src='" . $afficher['image'] . "'/>
-        <div class='boisson-texte'>
-            <h3>" . $afficher['nom'] . "</h3>
-            <p>Marque : " . $afficher['marque'] . "</p>
-            <p>Prix : <b>" . $afficher['prix'] . "</b></p>
-            
-            <form method='post' action='Panier'>
-    <input type='hidden' name='boisson_id' value='" . $afficher['id'] . "'>
-    <button type='submit' name='ajouter_au_panier'>Ajouter au panier</button>
-</form>
-        </div>
-    </div>
-";
+                        <div class='boisson-all'>
+                            <img src='" . $afficher['image'] . "'/>
+                            <div class='boisson-texte'>
+                                <h3>" . $afficher['nom'] . "</h3>
+                                <p>Marque : " . $afficher['marque'] . "</p>
+                                <p>Prix : <b>" . $afficher['prix'] . "</b></p>
+                                
+                                <form method='post' action=''>
+                                    <input type='hidden' name='boisson_id' value='" . $afficher['id'] . "'>
+                                    <button type='submit' name='ajouter_au_panier'>Ajouter au panier</button>
+                                </form>
+                            </div>
+                        </div>
+                    ";
                     $count++;
-
                     if ($count % 2 == 0) {
                         echo "</div>";
                     }
@@ -75,6 +77,31 @@ function request_allproducts()
         }
     } catch (PDOException $e) {
         echo "Erreur : " . $e->getMessage();
+    }
+}
+
+function ajouter_au_panier($boisson_id, $id_user, $bdd) {
+    try {
+        $requete = $bdd->prepare("INSERT INTO Panier (id, id_user) VALUES (:boisson_id, :id_user)");
+        $requete->bindParam(':boisson_id', $boisson_id, PDO::PARAM_INT);
+        $requete->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+        
+        if ($requete->execute()) {
+            echo "<span>Produit ajouté au panier avec succès.</span>";
+        } else {
+            echo "<span>Échec de l'ajout au panier.</span>";
+        }
+    } catch (PDOException $e) {
+        echo "Erreur de base de données : " . $e->getMessage();
+    }
+}
+if (isset($_POST['ajouter_au_panier'])) {
+    if (isset($_SESSION["user_id"])) {
+        $boisson_id = $_POST['boisson_id'];
+        $id_user = $_SESSION["user_id"];
+        ajouter_au_panier($boisson_id, $id_user, $bdd);
+    } else {
+        echo "<span>Vous devez être connecté pour ajouter des produits au panier.</span>";
     }
 }
 ?>

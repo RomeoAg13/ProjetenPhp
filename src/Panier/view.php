@@ -1,3 +1,8 @@
+<?php
+        function panier_view(){}
+    ?>
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,22 +10,11 @@
         <script src="https://unpkg.com/@phosphor-icons/web"></script>
         <title>SavourezLaSoif</title>
     </head>
-    <?php
-        function panier_view(){}
-    ?>
     <body>
-        <header>
-            <h1> <a href='/'>SavourezLaSoif</a></h1>
-    
-            <nav>
-                <ul>
-                    <li><a href='/TousLesProduits'>Tous les Produits</a></li>
-                    <li><a href='/Panier'><i class='ph ph-shopping-cart-simple dessus'></i></a></li>
-                    <li><a href='/Connection'><i class='ph ph-sign-in'></i></a></li>
-                    <li><a href='/EnSavoirPlus'><i class='ph ph-info'></i></a></li>
-                </ul>
-            </nav>
-        </header>
+        <?php 
+            include('header.php');
+            header_view();   
+        ?>
             <h1>Contenu Du Panier : </h1>
             
         

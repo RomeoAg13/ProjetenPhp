@@ -61,6 +61,16 @@ function route_request(){
 
         return;
     }
+
+    if ($route === "/Profile"|| $route === "/profile" ){
+        
+        require('./Profile/controller.php');
+        handler_profile();
+
+        return;
+    }
+
+
     echo "<h1>404 NOT FOUND</h1>";
 
 }
