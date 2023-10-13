@@ -12,4 +12,11 @@
 5. Creer la sécurité des vues (pages html) contre les injections SLQ❌
 6. Ajouter la couche de peinture (CSS)🟢
 7.Implementer le Router (navigation entre les pages web) avec erreurs si mauvais lien...🟢
+<<<<<<< HEAD
 -----------------------------------------------------------------------------------------------------
+=======
+-----------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------
+Tout est a rendre sur github 
+>>>>>>> 84d5ead08c0f2e1cf2d8686fbf17aa37294600f8
