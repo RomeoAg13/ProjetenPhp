@@ -1,8 +1,40 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <title>Connexion</title>
+    <head>
+        <meta charset="utf-8">
+        <title>Connexion</title>
+        <script src="https://unpkg.com/@phosphor-icons/web"></script> 
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href='/'><i class="ph ph-house"></i></a></li>
+                <li><a href='/TousLesProduits'><i class="ph ph-beer-bottle"></i></a></li>
+                <li><a href='/Panier'><i class='ph ph-shopping-cart-simple'></i></a></li>
+                <li><a href='/EnSavoirPlus'><i class="ph ph-info"></i></a></li>
+            </ul>
+        </nav>
+        <div class="container">
+            <h2>Connexion</h2>
+            <?php
+                function login_view(){
+                    if (isset($error_message)) {
+                        echo "<p class='error-message'>$error_message</p>";
+                    }
+                };
+            ?>
+            <form action="/Connection" method="post">
+                <label for="mail">Email :</label>
+                <input type="text" name="mail" required>
+                <label for="mdp_user">Mot de passe :</label>
+                <input type="password" name="mdp_user" required>
+            
+                <input type="submit" value="Se connecter">
+            </form>
+            <p>Si vous n'avez pas de compte, <a href="/Inscrire">inscrivez-vous ici</a>.</p>
+        </div>
+    </body>
+    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -36,6 +68,17 @@
             margin-bottom: 8px;
             font-weight: bold;
             color: #555;
+        }
+        nav{
+            display:flex;
+            justify-content:center;
+            flex-wrap:nowrap;
+            
+        }
+        ul{
+            list-style:none;
+            display:flex;
+            justify-content:center;
         }
 
         input[type="text"],
@@ -94,28 +137,4 @@
             color: #2980b9;
         }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h2>Connexion</h2>
-        <?php
-        function login_view(){
-            if (isset($error_message)) {
-                echo "<p class='error-message'>$error_message</p>";
-            }
-        };
-        ?>
-        <form action="/Connection" method="post">
-            <label for="mail">Email :</label>
-            <input type="text" name="mail" required>
-            
-            <label for="mdp_user">Mot de passe :</label>
-            <input type="password" name="mdp_user" required>
-            
-            <input type="submit" value="Se connecter">
-        </form>
-
-        <p>Si vous n'avez pas de compte, <a href="/Inscrire">inscrivez-vous ici</a>.</p>
-    </div>
-</body>
 </html>
