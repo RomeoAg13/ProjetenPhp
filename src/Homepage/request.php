@@ -38,7 +38,9 @@ function request_homepage(){
         }
 
 
-    }catch (PDOException $e)
+    }
+    
+    catch (PDOException $e)
     {
         echo $e->getMessage();
         echo "Pas connecté ";

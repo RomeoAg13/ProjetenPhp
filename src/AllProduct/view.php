@@ -1,6 +1,6 @@
 <?php
-function allproducts_view(){};
-    ?>
+    function allproducts_view(){};
+?>
 
 <!DOCTYPE html>
 <html>

@@ -1,7 +1,5 @@
 <?php
 require_once('./sqlconnection/sql.php');
-
-// Fonction pour afficher tous les produits
 function request_allproducts()
 {
     try {
@@ -40,7 +38,10 @@ function request_allproducts()
             } else {
                 echo "Aucun résultat trouvé.";
             }
-        } else {
+        }
+        
+        else 
+        {
             $query = "SELECT * FROM Boisson ORDER BY date_ajout ASC ";
             $result = $bdd->query($query);
 

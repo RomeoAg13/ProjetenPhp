@@ -1,8 +1,6 @@
 <?php
         function panier_view(){}
     ?>
-
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -116,7 +114,5 @@
     }
 
     </style>
-    
-    
     </body >
 </html>

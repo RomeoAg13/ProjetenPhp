@@ -16,7 +16,7 @@ function header_view() {
                     <h1> <a href='/'>SavourezLaSoif</a></h1>
                     <nav>
                         <ul>
-                            <li><a href='/TousLesProduits'>Tous les Produits</a></li>
+                            <li><a href='/TousLesProduits'><i class='ph ph-beer-bottle'></i></a></li>
                             <li><a href='/Panier'><i class='ph ph-shopping-cart-simple'></i></a></li>
     ";
 
@@ -36,7 +36,7 @@ function header_view() {
             $username = $user_data["user_name"];
 
             echo "
-                <li><a href='/Profile'>$username</a></li>
+                <li>$username</li>
                 <li><a href='/Logout'>Déconnexion</a></li>
             ";
         } 
@@ -60,9 +60,10 @@ function header_view() {
 
 
         <style>
-        a{
-            text-decoration:none;
-            color:white;
+        a {
+            text-decoration: none;
+            color: #3498db;
+            transition: color 0.3s;
         }
         header {
             display:flex;

@@ -1,18 +1,30 @@
 <?php
-include('header.php');
-header_view();
-function Homepage_view(){};
+    function Homepage_view(){};
 ?>
 
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Connexion</title>
+        <script src="https://unpkg.com/@phosphor-icons/web"></script> 
+    </head>
+
+    <body>
+        <?php 
+            include('header.php');
+            header_view();
+        ?>
         <main>
             <h2> Nos dernières Boissons : </h2>
         </main>
+
         <footer>
             <p>&copy; 2023 Agostino Roméo. Tous droits réservés.</p>
         </footer>
-    </body>
-</html>
 
+    </body>
+    
     <style>
     
     body {
@@ -20,7 +32,7 @@ function Homepage_view(){};
         margin: 0;
         padding: 0;   
         overflow-x:hidden; 
-
+        
     }
 
     h2{
@@ -34,8 +46,8 @@ function Homepage_view(){};
     img{
         width:200px;
     }
-
-
+    
+    
     .boisson-homepage {
         width:100%;
         margin: 100px 10px 10px 10px;;
@@ -51,7 +63,7 @@ function Homepage_view(){};
         border: 1px solid #ccc;
         border-radius: 5px;
     }
-
+    
     .boisson-homepage img {
         max-width: 100%;
         height: auto;
@@ -87,5 +99,7 @@ function Homepage_view(){};
         display:flex;
         justify-content:center;
     }
-
+    
     </style>
+
+</html>

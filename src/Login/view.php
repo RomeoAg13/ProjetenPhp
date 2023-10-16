@@ -6,33 +6,38 @@
         <script src="https://unpkg.com/@phosphor-icons/web"></script> 
     </head>
     <body>
-        <nav>
-            <ul>
-                <li><a href='/'><i class="ph ph-house"></i></a></li>
-                <li><a href='/TousLesProduits'><i class="ph ph-beer-bottle"></i></a></li>
-                <li><a href='/Panier'><i class='ph ph-shopping-cart-simple'></i></a></li>
-                <li><a href='/EnSavoirPlus'><i class="ph ph-info"></i></a></li>
-            </ul>
-        </nav>
-        <div class="container">
-            <h2>Connexion</h2>
-            <?php
-                function login_view(){
-                    if (isset($error_message)) {
-                        echo "<p class='error-message'>$error_message</p>";
-                    }
-                };
-            ?>
-            <form action="/Connection" method="post">
-                <label for="mail">Email :</label>
-                <input type="text" name="mail" required>
-                <label for="mdp_user">Mot de passe :</label>
-                <input type="password" name="mdp_user" required>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href='/'><i class="ph ph-house"></i></a></li>
+                    <li><a href='/TousLesProduits'><i class="ph ph-beer-bottle"></i></a></li>
+                    <li><a href='/Panier'><i class='ph ph-shopping-cart-simple'></i></a></li>
+                    <li><a href='/EnSavoirPlus'><i class="ph ph-info"></i></a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="container">
+                <h2>Connexion</h2>
+                <?php
+                    function login_view(){
+                        if (isset($error_message)) {
+                            echo "<p class='error-message'>$error_message</p>";
+                        }
+                    };
+                ?>
+                <form action="/Connection" method="post">
+                    <label for="mail">Email :</label>
+                    <input type="text" name="mail" required>
+                    <label for="mdp_user">Mot de passe :</label>
+                    <input type="password" name="mdp_user" required>
             
-                <input type="submit" value="Se connecter">
-            </form>
-            <p>Si vous n'avez pas de compte, <a href="/Inscrire">inscrivez-vous ici</a>.</p>
-        </div>
+                    <input type="submit" value="Se connecter">
+                </form>
+                <p>Si vous n'avez pas de compte, <a href="/Inscrire">inscrivez-vous ici</a>.</p>
+            </div>
+        </main>
     </body>
     
     <style>
@@ -69,16 +74,30 @@
             font-weight: bold;
             color: #555;
         }
+        header{
+            width: 100%;
+            position: absolute;
+            top: 0;
+            background-color:#242424;
+        }
+
         nav{
+            width:100%;
             display:flex;
-            justify-content:center;
             flex-wrap:nowrap;
             
         }
         ul{
+            width:100%;
+
             list-style:none;
-            display:flex;
-            justify-content:center;
+            display:flex;   
+        }
+
+        li{
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
         }
 
         input[type="text"],

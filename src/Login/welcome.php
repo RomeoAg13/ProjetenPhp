@@ -1,5 +1,5 @@
 <?php
-session_start(); // Démarrer la session (assurez-vous de l'appeler avant tout affichage de contenu)
+session_start(); 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
@@ -9,7 +9,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST["email"];
         $password = $_POST["password"];
 
-        // Vérifiez les informations de connexion dans la base de données
         $login_query = "SELECT * FROM utilisateur WHERE mail = ?";
         $login_stmt = $conn->prepare($login_query);
         $login_stmt->execute([$email]);
