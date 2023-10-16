@@ -9,7 +9,6 @@
         <title>Connexion</title>
         <script src="https://unpkg.com/@phosphor-icons/web"></script> 
     </head>
-
     <body>
         <?php 
             include('header.php');
@@ -18,11 +17,9 @@
         <main>
             <h2> Nos dernières Boissons : </h2>
         </main>
-
         <footer>
             <p>&copy; 2023 Agostino Roméo. Tous droits réservés.</p>
         </footer>
-
     </body>
     
     <style>
@@ -34,7 +31,6 @@
         overflow-x:hidden; 
         
     }
-
     h2{
         display:flex;
         justify-content:center;
@@ -42,7 +38,6 @@
         margin-top:100px;
         text-decoration:underline;
     }
-
     img{
         width:200px;
     }
@@ -101,5 +96,4 @@
     }
     
     </style>
-
 </html>

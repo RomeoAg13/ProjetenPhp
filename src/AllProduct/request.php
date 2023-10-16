@@ -4,16 +4,12 @@ function request_allproducts()
 {
     try {
         $bdd = new PDO('pgsql:host=localhost;port=5432;dbname=VenteBoisson', 'postgres', '1234');
-
         $count = 0;
-
         if (isset($_POST['rechercher'])) {
             $nom = '%' . $_POST['nom'] . '%';
-
             $requete = $bdd->prepare("SELECT * FROM Boisson WHERE nom ILIKE :nom");
             $requete->bindParam(':nom', $nom, PDO::PARAM_STR);
             $requete->execute();
-
             if ($requete->rowCount() > 0) {
                 echo "<h2>Résultats de la recherche :</h2>";
                 echo "<div class='boisson-homepage'>";
@@ -44,7 +40,6 @@ function request_allproducts()
         {
             $query = "SELECT * FROM Boisson ORDER BY date_ajout ASC ";
             $result = $bdd->query($query);
-
             if ($result->rowCount() > 0) {
                 echo "<div class='boisson-homepage'>";
                 while ($afficher = $result->fetch(PDO::FETCH_ASSOC)) {

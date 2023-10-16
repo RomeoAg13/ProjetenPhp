@@ -36,9 +36,7 @@
             width:30%;
             height:40px;
             cursor:pointer;
-
         }
-
         button:hover{
             width:35%;
             height:50px;
@@ -54,14 +52,11 @@
             text-align: center;
             display: flex;
             flex-wrap: wrap;
-
         }
-
         .boisson-row {
             width: 30%;
             margin-left: 54px;
         }
-
         .boisson-all{
             width: 80%;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -69,7 +64,6 @@
             border-radius: 5px;
             margin-bottom: 50px;
             margin: 10px 0px 30px 25px;
-
             
         }
         .boisson-homepage img {
@@ -91,15 +85,12 @@
             color: #777;
             margin: 5px 0;
         }
-
-
         form{
             display:flex;
             justify-content:center;
             margin-top:50px;
             margin-bottom:50px;  
         }
-
         h2{
             margin-top:100px;
             text-decoration:underline;
@@ -107,24 +98,19 @@
             justify-content:center;
             font-size:35px;
         }
-
         input{
             box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
-
         }
         .searchbar{
             width:300px;
             height:30px;
             font-size:20px;
             
-
         }
-
         span{
             display:flex;
             justify-content:center;
         }
-
         </style>
     </body >
 </html>

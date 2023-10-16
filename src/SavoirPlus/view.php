@@ -1,37 +1,24 @@
 <?php
     function savoirplus_view(){}
 ?>
-
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" />
         <script src="https://unpkg.com/@phosphor-icons/web"></script>
-
         <title>SavourezLaSoif</title>
-
     </head>
-
     <body>
         <?php 
             include('header.php');
             header_view();
         ?>
-
         <h1> <u>Qui suis je ? </u></h1>
         <main>
             <p>Je suis Roméo Agostino, étudiant en B2 développement web et application.<br>
             Voici mon Site de vente de Boissons.<br>
         Si vous avez des questions, n'hésitez pas à me contacter à l'adresse e-mail suivante : <a class="mail" href="mailto:romeo.agostino@efrei.net">romeo.agostino@efrei.net</a></p>
         </main>
-
-        
-
-
-
-
-
-
     <style>
     
     .mail{
@@ -69,7 +56,6 @@
         padding: 0;
         display: flex; 
     }
-
     nav ul li {
         margin-right:40px;
     }
@@ -78,22 +64,15 @@
         color:white;
         text-decoration: none;
     }
-    
-  
-
     nav ul li a:hover {
         color: #767676;
     }
-
-
-
     h1{
         display:flex;
         justify-content:center;
         margin:50px;
         
     }
-
     main{
         display:flex;
         justify-content:center;
@@ -106,11 +85,8 @@
     main p {
         text-align:center;
     }
-
     </style>
     
     
-
     </body >
-
 </html>
