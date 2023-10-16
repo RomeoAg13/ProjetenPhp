@@ -62,7 +62,7 @@ function header_view() {
         <style>
         a {
             text-decoration: none;
-            color: #3498db;
+            color: white;
             transition: color 0.3s;
         }
         header {

@@ -118,7 +118,7 @@
         }
 
         input[type="submit"] {
-            background-color: #3498db;
+            background-color: #746AB0;
             color: #fff;
             border: none;
             border-radius: 5px;
@@ -129,7 +129,7 @@
         }
 
         input[type="submit"]:hover {
-            background-color: #2980b9;
+            background-color: #615994;
         }
         span {
             margin: 20px 0px 20px 0px;
@@ -148,12 +148,12 @@
 
         a {
             text-decoration: none;
-            color: #3498db;
+            color: #746AB0;
             transition: color 0.3s;
         }
 
         a:hover {
-            color: #2980b9;
+            color: #746AB0;
         }
     </style>
 </html>

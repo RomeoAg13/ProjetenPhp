@@ -2,8 +2,19 @@
 <html>
 <head>
     <title>Inscription</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script> 
 </head>
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href='/'><i class="ph ph-house"></i></a></li>
+                <li><a href='/TousLesProduits'><i class="ph ph-beer-bottle"></i></a></li>
+                <li><a href='/Panier'><i class='ph ph-shopping-cart-simple'></i></a></li>
+                <li><a href='/EnSavoirPlus'><i class="ph ph-info"></i></a></li>
+            </ul>
+        </nav>
+    </header>
     <div class="container">
         <h2>Inscription</h2>
         
@@ -68,6 +79,32 @@
             color: #555;
         }
 
+        header{
+            width: 100%;
+            position: absolute;
+            top: 0;
+            background-color:#242424;
+        }
+
+        nav{
+            width:100%;
+            display:flex;
+            flex-wrap:nowrap;
+            
+        }
+        ul{
+            width:100%;
+
+            list-style:none;
+            display:flex;   
+        }
+
+        li{
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
+        }
+        
         input[type="text"],
         input[type="email"],
         input[type="password"] {
@@ -83,12 +120,12 @@
         input[type="text"]:focus,
         input[type="email"]:focus,
         input[type="password"]:focus {
-            border-color: #3498db;
+            border-color: #746AB0;
             outline: none;
         }
 
         input[type="submit"] {
-            background-color: #3498db;
+            background-color: #746AB0;
             color: #fff;
             border: none;
             border-radius: 5px;
@@ -99,7 +136,7 @@
         }
 
         input[type="submit"]:hover {
-            background-color: #2980b9;
+            background-color: #615994;
         }
 
         .error-message {
@@ -119,12 +156,12 @@
 
         a {
             text-decoration: none;
-            color: #3498db;
+            color: #746AB0;
             transition: color 0.3s;
         }
 
         a:hover {
-            color: #2980b9;
+            color: #615994;
         }
     </style>
 </body>

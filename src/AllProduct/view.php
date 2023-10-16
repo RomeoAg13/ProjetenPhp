@@ -30,8 +30,8 @@
         }
         button{
             margin:10px;
-            background-color:  #3cb5d8;
-            border-color:#3cb5d8;
+            background-color:  #746AB0;
+            border-color:#746AB0;
             color:white;
             width:30%;
             height:40px;
