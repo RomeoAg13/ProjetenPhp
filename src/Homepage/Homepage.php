@@ -6,7 +6,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Connexion</title>
+        <title>SavourezLaSoif</title>
         <script src="https://unpkg.com/@phosphor-icons/web"></script> 
     </head>
     <body>

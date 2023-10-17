@@ -59,7 +59,7 @@
         }
         .boisson-all{
             width: 80%;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 20px 20px 20px rgba( 116, 106, 176 , 0.2);
             border: 1px solid #ccc;
             border-radius: 5px;
             margin-bottom: 50px;
