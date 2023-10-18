@@ -1,12 +1,12 @@
 <?php
-require_once('./sqlconnection/sql.php');
 
 function request_panier() {
     if (isset($_SESSION['user_id'])) {
         $user_id = $_SESSION['user_id'];
         $total_prix = 0;
         try {
-            $bdd = new PDO('pgsql:host=localhost;port=5432;dbname=VenteBoisson', 'postgres', '1234');
+            $bdd = require('./sqlconnection/sql.php');
+
             if (isset($_POST['supprimer_boisson'])) {
                 $boisson_id_a_supprimer = $_POST['boisson_id_a_supprimer'];
                 $deleteQuery = "DELETE FROM Panier WHERE id_user = :user_id AND id = :boisson_id";

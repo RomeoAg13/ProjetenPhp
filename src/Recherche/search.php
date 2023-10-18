@@ -45,8 +45,8 @@
     }
         button{
             margin:10px;
-            background-color:  #3cb5d8;
-            border-color:#3cb5d8;
+            background-color:  #746AB0;
+            border-color:#746AB0;
             color:white;
             width:30%;
             height:40px;
@@ -173,18 +173,16 @@
 
 function search_bar()
 {
-    $bdd = new PDO('pgsql:host=localhost;port=5432;dbname=VenteBoisson', 'postgres', '1234');
-    
     if (isset($_POST['rechercher'])) {
+        $bdd = require('./sqlconnection/sql.php');
         $nom = '%' . $_POST['nom'] . '%';
-
         $requete = $bdd->prepare("SELECT * FROM Boisson WHERE nom ILIKE :nom");
         $requete->bindParam(':nom', $nom, PDO::PARAM_STR);
         $requete->execute();
 
         if ($requete->rowCount() > 0) {
             echo "<main><h2><a href='/TousLesProduits' class='button'><i class='ph ph-arrow-left'></i></a></h2>
-            <h2>Résultats de la recherche :</h2></main>";
+                <h2>Résultats de la recherche :</h2></main>";
             echo "<div class='boisson-homepage'>";
             while ($row = $requete->fetch(PDO::FETCH_ASSOC)) {
                 echo "
@@ -206,19 +204,16 @@ function search_bar()
             echo "</div>";
         } else {
             echo "<main><h2><a href='/TousLesProduits' class='button'><i class='ph ph-arrow-left'></i></a></h2>
-            <h2>Résultats de la recherche :</h2></main>";
+                <h2>Résultats de la recherche :</h2></main>";
             echo "<h3>Aucun résultat trouvé.</h3>";
         }
     }
-    echo"
-    
-    ";
 }
 
-function ajouter_au_panier($boisson_id, $id_user, $bdd) {
+function ajouter_au_panier($boisson_id, $id_user)
+{
+    $bdd = require('./sqlconnection/sql.php');
     try {
-        $bdd = new PDO('pgsql:host=localhost;port=5432;dbname=VenteBoisson', 'postgres', '1234');
-
         $requete = $bdd->prepare("INSERT INTO Panier (id, id_user) VALUES (:boisson_id, :id_user)");
         $requete->bindParam(':boisson_id', $boisson_id, PDO::PARAM_INT);
         $requete->bindParam(':id_user', $id_user, PDO::PARAM_INT);
@@ -232,12 +227,12 @@ function ajouter_au_panier($boisson_id, $id_user, $bdd) {
         echo "Erreur de base de données : " . $e->getMessage();
     }
 }
+
 if (isset($_POST['ajouter_au_panier'])) {
     if (isset($_SESSION["user_id"])) {
-        $bdd = new PDO('pgsql:host=localhost;port=5432;dbname=VenteBoisson', 'postgres', '1234');
         $boisson_id = $_POST['boisson_id'];
         $id_user = $_SESSION["user_id"];
-        ajouter_au_panier($boisson_id, $id_user, $bdd);
+        ajouter_au_panier($boisson_id, $id_user);
     } else {
         echo "<h3>Vous devez être connecté pour ajouter des produits au panier.</h3>";
     }

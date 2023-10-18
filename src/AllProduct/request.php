@@ -1,9 +1,8 @@
 <?php
-require_once('./sqlconnection/sql.php');
 function request_allproducts()
 {
     try {
-        $bdd = new PDO('pgsql:host=localhost;port=5432;dbname=VenteBoisson', 'postgres', '1234');
+        $bdd = require('./sqlconnection/sql.php');
         $count = 0;
         if (isset($_POST['rechercher'])) {
             $nom = '%' . $_POST['nom'] . '%';
@@ -93,6 +92,7 @@ function ajouter_au_panier($boisson_id, $id_user, $bdd) {
 }
 if (isset($_POST['ajouter_au_panier'])) {
     if (isset($_SESSION["user_id"])) {
+        $bdd = require('./sqlconnection/sql.php');
         $boisson_id = $_POST['boisson_id'];
         $id_user = $_SESSION["user_id"];
         ajouter_au_panier($boisson_id, $id_user, $bdd);

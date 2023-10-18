@@ -1,9 +1,8 @@
 <?php 
-require_once('./sqlconnection/sql.php');
 
 function request_homepage(){
     try {
-        $bdd = new PDO('pgsql:host=localhost;port=5432;dbname=VenteBoisson', 'postgres', '1234');
+        $bdd = require('./sqlconnection/sql.php');
         $query = "SELECT * FROM Boisson ORDER BY date_ajout DESC LIMIT 3";
         $result = $bdd->query($query);
         if ($result->rowCount() > 0)

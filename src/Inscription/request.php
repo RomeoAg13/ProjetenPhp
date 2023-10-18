@@ -2,7 +2,7 @@
     function request_inscription(){
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             try {
-                $bdd = new PDO('pgsql:host=localhost;port=5432;dbname=VenteBoisson', 'postgres', '1234');
+                $bdd = require_once('./sqlconnection/sql.php');
                 $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $user_name = $_POST["user_name"];
             $email = $_POST["mail"];

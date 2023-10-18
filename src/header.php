@@ -23,7 +23,8 @@ function header_view() {
     if (isset($_SESSION["user_id"])) {
         
         try {
-            $bdd = new PDO('pgsql:host=localhost;port=5432;dbname=VenteBoisson', 'postgres', '1234');
+            $bdd = require_once('./sqlconnection/sql.php');
+
             $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             $user_id = $_SESSION["user_id"];

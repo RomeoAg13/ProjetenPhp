@@ -6,5 +6,6 @@
         echo $e->getMessage();
         echo "Pas connecté ";
     }
+    return $bdd;
 
 ?>
