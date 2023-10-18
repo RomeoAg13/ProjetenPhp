@@ -22,7 +22,6 @@ function request_login(){
             } else {
                 $error_message = "<span>Erreur, Identifiants incorrects. Veuillez réessayer.</span>";
                 echo $error_message;
-
             }
         } catch (PDOException $e) {
             die("Erreur de connexion à la base de données : " . $e->getMessage());

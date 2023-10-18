@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Inscription</title>
-    <script src="https://unpkg.com/@phosphor-icons/web"></script> 
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body>
     <header>
@@ -17,7 +17,7 @@
     </header>
     <div class="container">
         <h2>Inscription</h2>
-        
+
         <?php
         function inscription_view(){
             $messages = "";
@@ -30,16 +30,17 @@
             return $messages;
         }
         ?>
+
         <form action="Inscrire" method="post">
             <label for="user_name">Nom d'utilisateur :</label>
             <input type="text" name="user_name" required><br><br>
-        
+
             <label for="mail">Email :</label>
             <input type="email" name="mail" required><br><br>
-            
+
             <label for="mdp_user">Mot de passe :</label>
             <input type="password" name="mdp_user" required><br><br>
-            
+
             <input type="submit" value="S'inscrire">
         </form>
         <p>Si vous avez déjà un compte, <a href="/Connection">connectez-vous ici</a>.</p>
@@ -83,20 +84,19 @@
             width: 100%;
             position: absolute;
             top: 0;
-            background-color:#242424;
+            background-color: #242424;
         }
 
         nav{
             width:100%;
             display:flex;
             flex-wrap:nowrap;
-            
         }
+
         ul{
             width:100%;
-
             list-style:none;
-            display:flex;   
+            display:flex;
         }
 
         li{
@@ -104,7 +104,7 @@
             justify-content: space-evenly;
             width: 100%;
         }
-        
+
         input[type="text"],
         input[type="email"],
         input[type="password"] {
@@ -148,10 +148,11 @@
             margin-top: 20px;
             color: #555;
         }
+
         span {
             margin: 20px 0px 20px 0px;
             color: #555;
-            font-size:20px;
+            font-size: 20px;
         }
 
         a {

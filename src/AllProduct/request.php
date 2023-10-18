@@ -33,10 +33,7 @@ function request_allproducts()
             } else {
                 echo "Aucun résultat trouvé.";
             }
-        }
-        
-        else 
-        {
+        } else {
             $query = "SELECT * FROM Boisson ORDER BY date_ajout ASC ";
             $result = $bdd->query($query);
             if ($result->rowCount() > 0) {
@@ -48,7 +45,7 @@ function request_allproducts()
                     echo "
                         <div class='boisson-all'>
                             <img src='" . $afficher['image'] . "'/>
-                            <div class='boisson-texte'>
+                            <div class 'boisson-texte'>
                                 <h3>" . $afficher['nom'] . "</h3>
                                 <p>Marque : " . $afficher['marque'] . "</p>
                                 <p>Prix : <b>" . $afficher['prix'] . "</b></p>

@@ -1,23 +1,22 @@
 <?php
-        function panier_view(){}
-    ?>
+function panier_view(){}
+?>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <script src="https://unpkg.com/@phosphor-icons/web"></script>
-        <title>SavourezLaSoif</title>
-    </head>
-    <body>
-        <?php 
-            include('header.php');
-            header_view();   
-        ?>
-            <h1>Contenu Du Panier : </h1>
-            
-        
+<head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <title>SavourezLaSoif</title>
+</head>
+<body>
+    <?php 
+        include('header.php');
+        header_view();   
+    ?>
+    <h1>Contenu Du Panier : </h1>
+
     <style>
-    
+
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         margin: 0;
@@ -25,8 +24,7 @@
         overflow-x:hidden; 
         background-color:whitesmoke;
     }
-    
-    
+
     header {
         display:flex;
         align-items:center;
@@ -36,11 +34,11 @@
         padding: 10px;
         text-align: center;
     }
-    
+
     header h1 {
         margin: 0;
     }
-    
+
     h1 a{
         text-decoration:none;
         color:WHITE;
@@ -56,7 +54,7 @@
     nav ul li {
         margin-right:40px;
     }
-    
+
     nav ul li a {
         color:white;
         text-decoration: none;
@@ -72,7 +70,6 @@
 
     h2{
         text-align:center;
-        
     }
 
     main {
@@ -114,5 +111,5 @@
     }
 
     </style>
-    </body >
+</body >
 </html>

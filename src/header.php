@@ -5,23 +5,22 @@ function header_view() {
 
     echo "
     <!DOCTYPE html>
-        <html>
-            <head>
-                <meta charset='utf-8' />
-                <script src='https://unpkg.com/@phosphor-icons/web'></script>
-                <title>SavourezLaSoif</title>
-            </head>
-            <body>
-                <header>
-                    <h1> <a href='/'>SavourezLaSoif</a></h1>
-                    <nav>
-                        <ul>
-                            <li><a href='/TousLesProduits'><i class='ph ph-beer-bottle'></i></a></li>
-                            <li><a href='/Panier'><i class='ph ph-shopping-cart-simple'></i></a></li>
+    <html>
+    <head>
+        <meta charset='utf-8' />
+        <script src='https://unpkg.com/@phosphor-icons/web'></script>
+        <title>SavourezLaSoif</title>
+    </head>
+    <body>
+        <header>
+            <h1> <a href='/'>SavourezLaSoif</a></h1>
+            <nav>
+                <ul>
+                    <li><a href='/TousLesProduits'><i class='ph ph-beer-bottle'></i></a></li>
+                    <li><a href='/Panier'><i class='ph ph-shopping-cart-simple'></i></a></li>
     ";
 
     if (isset($_SESSION["user_id"])) {
-        
         try {
             $bdd = require_once('./sqlconnection/sql.php');
 
@@ -37,30 +36,25 @@ function header_view() {
             $username = $user_data["user_name"];
 
             echo "
-                <li>$username</li>
-                <li><a href='/Logout'>Déconnexion</a></li>
-            ";
-        } 
-        catch (PDOException $e)
-        {
+                    <li>$username</li>
+                    <li><a href='/Logout'>Déconnexion</a></li>
+                ";
+        } catch (PDOException $e) {
             die("Erreur de connexion à la base de données : " . $e->getMessage());
         }
-    } 
-    else
-    {
+    } else {
         echo "
             <li><a href='/Connection'><i class='ph ph-sign-in'></i></a></li>
         ";
     }
 
     echo "
-                    <li><a href='/EnSavoirPlus'><i class='ph ph-info'></i></a></li>
-                </ul>
-            </nav>
-        </header>
+                <li><a href='/EnSavoirPlus'><i class='ph ph-info'></i></a></li>
+            </ul>
+        </nav>
+    </header>
 
-
-        <style>
+    <style>
         a {
             text-decoration: none;
             color: white;
@@ -75,31 +69,29 @@ function header_view() {
             padding: 10px;
             text-align: center;
         }
-        
+
         header h1 {
             margin: 0;
         }
-        
-        
+
         nav ul {
             list-style-type: none;
             padding: 0;
-            display: flex; 
+            display: flex;
         }
-    
+
         nav ul li {
             margin-right:40px;
         }
-        
+
         nav ul li a {
             color:white;
             text-decoration: none;
         }
-        
-    
+
         nav ul li a:hover {
             color: #767676;
         }
-        </style>
-        ";
+    </style>
+    ";
 }

@@ -6,14 +6,13 @@ function request_panier() {
         $total_prix = 0;
         try {
             $bdd = require('./sqlconnection/sql.php');
-
             if (isset($_POST['supprimer_boisson'])) {
                 $boisson_id_a_supprimer = $_POST['boisson_id_a_supprimer'];
                 $deleteQuery = "DELETE FROM Panier WHERE id_user = :user_id AND id = :boisson_id";
                 $deleteResult = $bdd->prepare($deleteQuery);
                 $deleteResult->bindParam(':user_id', $user_id, PDO::PARAM_INT);
                 $deleteResult->bindParam(':boisson_id', $boisson_id_a_supprimer, PDO::PARAM_INT);
-                $deleteResult->execute();   
+                $deleteResult->execute();
                 header('Location: Panier');
                 exit;
             }

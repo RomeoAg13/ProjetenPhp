@@ -1,12 +1,11 @@
 <?php 
 
-function request_homepage(){
+function request_homepage() {
     try {
         $bdd = require('./sqlconnection/sql.php');
         $query = "SELECT * FROM Boisson ORDER BY date_ajout DESC LIMIT 3";
         $result = $bdd->query($query);
-        if ($result->rowCount() > 0)
-        {
+        if ($result->rowCount() > 0) {
             echo "<div class='boisson-homepage'>";
             while ($afficher = $result->fetch(PDO::FETCH_ASSOC)) {
                 echo "
@@ -16,23 +15,16 @@ function request_homepage(){
                             <h3>" . $afficher['nom'] . "</h3>
                             <p>Marque : " . $afficher['marque'] . "</p>
                             <p>Prix : <b>" . $afficher['prix'] . "</b></p>
-                            
                         </div>
-                    </div>
-                    
-                    ";
-                    
-                }
-                echo "</div>";
+                    </div>";
+            }
+            echo "</div>";
         } 
-        else 
-        {
+        else {
             echo "Aucune boisson trouvée.";
         }
     }
-    
-    catch (PDOException $e)
-    {
+    catch (PDOException $e) {
         echo $e->getMessage();
         echo "Pas connecté ";
     }
